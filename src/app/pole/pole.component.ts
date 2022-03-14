@@ -31,17 +31,17 @@ export class PoleComponent implements OnInit {
     this.ActivateAddEditPoleComp=false;
   }
 
- /* editClick(item){
+  /*editClick(item){
     this.pole=item;
     this.ModalTitle="Edit Department";
     this.ActivateAddEditPoleComp=true;
   }
 
-  deleteClick(item){
+  deleteClick(){
     if(confirm('Are you sure??')){
       this.service.deletePole(item.DepartmentId).subscribe(data=>{
         alert(data.toString());
-        this.refreshDepList();
+        this.refreshPoleList();
       })
     }
   }*/
@@ -49,7 +49,7 @@ export class PoleComponent implements OnInit {
   
 
 
-  refreshDepList(){
+  refreshPoleList(){
     this.service.getPoleList().subscribe(data=>{
       this.PoleList=data;
      // this.DepartmentListWithoutFilter=data;
