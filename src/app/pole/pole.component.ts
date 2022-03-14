@@ -10,19 +10,17 @@ export class PoleComponent implements OnInit {
   constructor() { }
   ModalTitle:string="";
   ActivateAddEditEmpComp:boolean=false;
-  emp:any;
+  pole:any;
   ngOnInit(): void {
     
   }
   addClick(){
-    this.emp={
-      EmployeeId:0,
-      EmployeeName:"",
-      Department:"",
-      DateOfJoining:"",
+    this.pole={
+      poleId:0,
+      poleName:"",
       PhotoFileName:"anonymous.png"
     }
-    this.ModalTitle="Add Employee";
+    this.ModalTitle="Add pole";
     this.ActivateAddEditEmpComp=true;
 
   }

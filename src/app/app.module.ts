@@ -11,6 +11,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { EmailComponent } from './email/email.component';
 import { EvaluationComponent } from './evaluation/evaluation.component';
 import { AddEditPoleComponent } from './add-edit-pole/add-edit-pole.component';
+import { PoleServiceService } from './services/pole-service.service';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,11 @@ import { AddEditPoleComponent } from './add-edit-pole/add-edit-pole.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PoleServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
