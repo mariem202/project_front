@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PoleServiceService } from '../services/pole-service.service';
 
 @Component({
   selector: 'app-add-edit-pole',
@@ -7,28 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEditPoleComponent implements OnInit {
 
-  constructor() { }
-  dep:any;
+  //constructor() { }
+  constructor(private service:PoleServiceService) { }
+  pole:any;
   PoleId:string="";
   PoleName:string="";
   PhotoFileName:string="";
   PhotoFilePath:string="";
+
   ngOnInit(): void {
-    this.PoleId=this.dep.DepartmentId;
-    this.PoleName=this.dep.DepartmentName;
+    this.PoleId=this.pole.PoleId;
+    this.PoleName=this.pole.PoleName;
   }
   addPole(){
-    var val = {DepartmentId:this.PoleId,
-                DepartmentName:this.PoleName};
-  /*  this.service.addDepartment(val).subscribe(res=>{
+    var val = {PoleId:this.PoleId,
+                PoleName:this.PoleName};
+    this.service.addPole(val).subscribe(res=>{
       alert(res.toString());
-    });*/
+    });
   }
 
   updatePole(){
     var val = {DepartmentId:this.PoleId,
       DepartmentName:this.PoleName};
-    
+      this.service.updatePole(val).subscribe(res=>{
+        alert(res.toString());
+        });
   }
   uploadPhoto(event:any){
     var file=event.target.files[0];

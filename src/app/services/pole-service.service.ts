@@ -12,15 +12,20 @@ export class PoleServiceService {
   getPoleList():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/GetAllPole');
   }
-  addDepartment(val:any){
+  addPole(val:any){
     return this.http.post(this.APIUrl+'/PostPole',val);
   }
 
-  updateDepartment(val:any){
+  updatePole(val:any){
     return this.http.put(this.APIUrl+'/PutPole',val);
   }
 
-  deleteDepartment(val:any){
+  deletePole(val:any){
     return this.http.delete(this.APIUrl+'/DeletePole/'+val);
   }
+
+  /*UploadPhoto(val:any){
+    return this.http.post(this.APIUrl+'/Employee/SaveFile',val);
+  }*/
+
 }

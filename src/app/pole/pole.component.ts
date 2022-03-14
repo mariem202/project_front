@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PoleServiceService } from '../services/pole-service.service';
 
 @Component({
   selector: 'app-pole',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PoleComponent implements OnInit {
 
-  constructor() { }
+  //constructor() { }
+  constructor(private service:PoleServiceService) { }
+  PoleList:any=[];
   ModalTitle:string="";
-  ActivateAddEditEmpComp:boolean=false;
+  ActivateAddEditPoleComp:boolean=false;
   pole:any;
   ngOnInit(): void {
     
@@ -21,11 +24,36 @@ export class PoleComponent implements OnInit {
       PhotoFileName:"anonymous.png"
     }
     this.ModalTitle="Add pole";
-    this.ActivateAddEditEmpComp=true;
+    this.ActivateAddEditPoleComp=true;
 
   }
   closeClick(){
-    this.ActivateAddEditEmpComp=false;
+    this.ActivateAddEditPoleComp=false;
+  }
+
+ /* editClick(item){
+    this.pole=item;
+    this.ModalTitle="Edit Department";
+    this.ActivateAddEditPoleComp=true;
+  }
+
+  deleteClick(item){
+    if(confirm('Are you sure??')){
+      this.service.deletePole(item.DepartmentId).subscribe(data=>{
+        alert(data.toString());
+        this.refreshDepList();
+      })
+    }
+  }*/
+
+  
+
+
+  refreshDepList(){
+    this.service.getPoleList().subscribe(data=>{
+      this.PoleList=data;
+     // this.DepartmentListWithoutFilter=data;
+    });
   }
 
 }
