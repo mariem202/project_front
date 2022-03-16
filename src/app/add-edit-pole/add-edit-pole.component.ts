@@ -8,8 +8,8 @@ import { PoleServiceService } from '../services/pole-service.service';
 })
 export class AddEditPoleComponent implements OnInit {
 
-  //constructor() { }
-  constructor(private service:PoleServiceService) { }
+  constructor() { }
+  // constructor(public service:PoleServiceService) { }
   pole:any;
   PoleId:string="";
   PoleName:string="";
@@ -23,17 +23,17 @@ export class AddEditPoleComponent implements OnInit {
   addPole(){
     var val = {PoleId:this.PoleId,
                 PoleName:this.PoleName};
-    this.service.addPole(val).subscribe(res=>{
-      alert(res.toString());
-    });
+    // this.service.addPole(val).subscribe(res=>{
+    //   alert(res.toString());
+    // });
   }
 
   updatePole(){
     var val = {DepartmentId:this.PoleId,
       DepartmentName:this.PoleName};
-      this.service.updatePole(val).subscribe(res=>{
+      /*this.service.updatePole(val).subscribe(res=>{
         alert(res.toString());
-        });
+        });*/
   }
   uploadPhoto(event:any){
     var file=event.target.files[0];

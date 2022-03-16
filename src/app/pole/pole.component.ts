@@ -8,8 +8,8 @@ import { PoleServiceService } from '../services/pole-service.service';
 })
 export class PoleComponent implements OnInit {
 
-  //constructor() { }
-  constructor(private service:PoleServiceService) { }
+  constructor() { }
+ // constructor(private service:PoleServiceService) { }
   PoleList:any=[];
   ModalTitle:string="";
   ActivateAddEditPoleComp:boolean=false;
@@ -50,10 +50,10 @@ export class PoleComponent implements OnInit {
 
 
   refreshPoleList(){
-    this.service.getPoleList().subscribe(data=>{
+   /* this.service.getPoleList().subscribe(data=>{
       this.PoleList=data;
      // this.DepartmentListWithoutFilter=data;
-    });
+    });*/
   }
 
 }

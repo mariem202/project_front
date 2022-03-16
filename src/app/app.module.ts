@@ -13,6 +13,7 @@ import { EvaluationComponent } from './evaluation/evaluation.component';
 import { AddEditPoleComponent } from './add-edit-pole/add-edit-pole.component';
 import { PoleServiceService } from './services/pole-service.service';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { NormesComponent } from './normes/normes.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     ProfileComponent,
     EmailComponent,
     EvaluationComponent,
-    AddEditPoleComponent
+    AddEditPoleComponent,
+    NormesComponent
   ],
   imports: [
     BrowserModule,

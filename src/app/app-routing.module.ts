@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmailComponent } from './email/email.component';
 import { EvaluationComponent } from './evaluation/evaluation.component';
 import { HomeComponent } from './home/home.component';
+import { NormesComponent } from './normes/normes.component';
 import { PoleComponent } from './pole/pole.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'pole',component:PoleComponent},
   {path:'mail',component:EmailComponent},
   {path:'evaluation',component:EvaluationComponent},
+  {path:'norme',component:NormesComponent},
 ];
 
 @NgModule({
