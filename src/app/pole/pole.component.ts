@@ -11,7 +11,7 @@ export class PoleComponent implements OnInit {
   constructor() { }
  // constructor(private service:PoleServiceService) { }
   PoleList:any=[];
-  ModalTitle:string="";
+  ModalTitle:string="Ajouter Pole ";
   ActivateAddEditPoleComp:boolean=false;
   pole:any;
   ngOnInit(): void {

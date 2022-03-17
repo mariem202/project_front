@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Pole } from '../pole';
 import { PoleServiceService } from '../services/pole-service.service';
 
 @Component({
@@ -8,28 +10,43 @@ import { PoleServiceService } from '../services/pole-service.service';
 })
 export class AddEditPoleComponent implements OnInit {
 
-  constructor() { }
-  // constructor(public service:PoleServiceService) { }
-  pole:any;
+ // constructor() { }
+   constructor(public service:PoleServiceService,private fb: FormBuilder) { }
+ /* pole:any;
   PoleId:string="";
-  PoleName:string="";
+  PoleName:string="";*/
   PhotoFileName:string="";
   PhotoFilePath:string="";
 
+  formCum=this.fb.group({
+    name:[""],
+    image:[""],
+    });
+
+    cumulative: Pole = {}
   ngOnInit(): void {
-    this.PoleId=this.pole.PoleId;
-    this.PoleName=this.pole.PoleName;
+   // this.PoleId=this.pole.PoleId;
+    //this.PoleName=this.pole.PoleName;
   }
   addPole(){
-    var val = {PoleId:this.PoleId,
-                PoleName:this.PoleName};
-    // this.service.addPole(val).subscribe(res=>{
-    //   alert(res.toString());
-    // });
-  }
+    if(! this.formCum.valid){
+      alert("veuillez remplir tous les champs")
+    }
+    
+    this.cumulative = {
+      id:this.cumulative.id,
+      name: this.formCum.controls['name'].value,
+    }
+    this.service.postPole(this.cumulative).subscribe(res=>{
+      alert(res.toString());
+    })
+  
+  
+    console.log('hello');
+  } 
 
   updatePole(){
-    var val = {DepartmentId:this.PoleId,
+   /* var val = {DepartmentId:this.PoleId,
       DepartmentName:this.PoleName};
       /*this.service.updatePole(val).subscribe(res=>{
         alert(res.toString());

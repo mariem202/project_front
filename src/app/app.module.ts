@@ -14,6 +14,8 @@ import { AddEditPoleComponent } from './add-edit-pole/add-edit-pole.component';
 import { PoleServiceService } from './services/pole-service.service';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { NormesComponent } from './normes/normes.component';
+import { GestionNormesComponent } from './gestion-normes/gestion-normes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { NormesComponent } from './normes/normes.component';
     EmailComponent,
     EvaluationComponent,
     AddEditPoleComponent,
-    NormesComponent
+    NormesComponent,
+    GestionNormesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [PoleServiceService],
   bootstrap: [AppComponent]

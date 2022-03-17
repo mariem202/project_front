@@ -1,4 +1,4 @@
 export interface Norme {
     id?: string,
-   name?: string,
+    name?: string,
 }

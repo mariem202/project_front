@@ -10,7 +10,7 @@ import { PoleServiceService } from '../services/pole-service.service';
 })
 export class NormesComponent implements OnInit {
 
-  //constructor(private fb: FormBuilder) { }
+  constructor() { }
   NormeList: Array<{identifiant: number, libelle: string}> = [
     {identifiant: 1, libelle: "Nettoyer"},
     {identifiant: 2, libelle: 'Ranger'},
@@ -18,7 +18,7 @@ export class NormesComponent implements OnInit {
     {identifiant: 4, libelle: "Maintenir l'ordre"},
     {identifiant: 5, libelle: "Débarrasser"},
 ];
-constructor(private normeService: PoleServiceService ) { }
+//constructor(private normeService: PoleServiceService ) { }
 
   //constructor(private service:SharedService) { }
 
@@ -44,16 +44,16 @@ constructor(private normeService: PoleServiceService ) { }
   NormeName:string="";
 
   ngOnInit(): void {
-    this.NormId=this.nor.NormId;
-    this.NormeName=this.nor.NormeName;
+   // this.NormId=this.nor.NormId;
+    //this.NormeName=this.nor.NormeName;
   }
 
   addDepartment(){
     var val = {NormId:this.NormId,
                 NormeName:this.NormeName};
-    this.normeService.postCumulative(val).subscribe(res=>{
+   /* this.normeService.postCumulative(val).subscribe(res=>{
       alert(res.toString());
-    });
+    });*/
   }
 
   
