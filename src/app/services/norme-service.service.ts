@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Norme } from '../norme';
+import { Pole } from '../pole';
+import { PoleComponent } from '../pole/pole.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,4 +15,8 @@ export class NormeServiceService {
   postNorme(cumulative:any){
     return this.http.post(this.backEndUrl+"/Post",cumulative,{responseType:"text"})
   }
+  listNormes:Norme[]=[]
+  getListNormes():Observable<any[]>{
+       return this.http.get<any>(this.backEndUrl+"/GetAllNorme")
+    }
 }

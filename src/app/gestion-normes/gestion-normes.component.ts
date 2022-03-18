@@ -12,26 +12,28 @@ import { NormeServiceService } from '../services/norme-service.service';
 export class GestionNormesComponent implements OnInit {
 
  // constructor() { }
-  NormeList: Array<{identifiant: number, libelle: string}> = [
+  /*NormeList: Array<{identifiant: number, libelle: string}> = [
     {identifiant: 1, libelle: "Nettoyer"},
     {identifiant: 2, libelle: 'Ranger'},
     {identifiant: 3, libelle: 'Etre rigoureux'},
     {identifiant: 4, libelle: "Maintenir l'ordre"},
     {identifiant: 5, libelle: "Débarrasser"},
-];
+];*/
 formCum=this.fb.group({
   name:[""],
   
   });
 cumulative: Norme = {}
-listRubriques: Norme[] = []
+NormeList: any = []
 //filterForm: FormGroup
 //formCum: FormGroup
 constructor(private normeService: NormeServiceService,private fb: FormBuilder ) { }
 
 //public norme: Norme = new Norme();
 ngOnInit(): void {
-
+   this.normeService.getListNormes().subscribe(data=>{
+    this.NormeList=data;
+  });
 }
 
 
