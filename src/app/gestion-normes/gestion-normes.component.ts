@@ -47,12 +47,12 @@ public saveData() {
     name: this.formCum.controls['name'].value,
   }
   this.normeService.postNorme(this.cumulative).subscribe(res=>{
-    alert(res.toString());
+    alert(res.valueOf.toString());
   })
 
 
   console.log('hello');
-  //alert("ajouter avec succes ");
+  alert(this.cumulative.name);
 }
 
 
