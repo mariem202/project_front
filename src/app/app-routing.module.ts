@@ -8,6 +8,7 @@ import { NormesComponent } from './normes/normes.component';
 import { PoleComponent } from './pole/pole.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -18,6 +19,8 @@ const routes: Routes = [
   {path:'evaluation',component:EvaluationComponent},
   {path:'norme',component:NormesComponent}, 
    {path:'gnorme',component:GestionNormesComponent},
+   
+   {path:'test',component:TestComponent},
 ];
 
 @NgModule({

@@ -16,6 +16,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { NormesComponent } from './normes/normes.component';
 import { GestionNormesComponent } from './gestion-normes/gestion-normes.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     EvaluationComponent,
     AddEditPoleComponent,
     NormesComponent,
-    GestionNormesComponent
+    GestionNormesComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
