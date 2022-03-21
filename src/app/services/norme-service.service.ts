@@ -16,7 +16,7 @@ export class NormeServiceService {
     return this.http.post(this.backEndUrl+"/Post",cumulative,{responseType:"text"})
   }
   listNormes:Norme[]=[]
-  getListNormes():Observable<any[]>{
-       return this.http.get<any>(this.backEndUrl+"/GetAllNorme")
-    }
+  getListNormes(){
+        return this.http.get(this.backEndUrl+"/GetAllNormes")
+     }
 }
