@@ -10,8 +10,7 @@ import { NormeServiceService } from '../services/norme-service.service';
 })
 export class TestComponent implements OnInit {
   formCum=this.fb.group({
-   
-    name:[""]
+    designation:[""]
     });
   cumulative: Norme = {}
   listRubriques: Norme[] = []
@@ -37,21 +36,26 @@ export class TestComponent implements OnInit {
     }
     this.cumulative = {
       id:this.cumulative.id,
-      
-      name: this.formCum.controls['name'].value,
+      designation: this.formCum.controls['designation'].value,
      
     }
-    alert(this.cumulative.name);
+    //alert(this.cumulative.name);
+    
 //this.formCum.reset()
     if(this.cumulative.id==undefined){
       this.rubriqueCumulativeService.postNorme(this.cumulative).subscribe((res) => {
         
         this.cumulative={}
-        this.createFormCumul(this.cumulative)
+       // this.createFormCumul(this.cumulative)
        
       })
     }
     
+  console.log('hi');
+  console.log(this.cumulative);
+  alert(this.cumulative.designation); 
+    
    
   }
+  
 }

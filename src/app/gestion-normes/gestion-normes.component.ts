@@ -20,7 +20,7 @@ export class GestionNormesComponent implements OnInit {
     {identifiant: 5, libelle: "Débarrasser"},
 ];
 formCum=this.fb.group({
-  name:[""],
+  designation:[""],
   
   });
 cumulative: Norme = {}
@@ -44,16 +44,17 @@ public saveData() {
   }
   this.cumulative = {
     id:this.cumulative.id,
-    name: this.formCum.controls['name'].value,
+    designation: this.formCum.controls['designation'].value,
   }
   this.normeService.postNorme(this.cumulative).subscribe(res=>{
-    alert(res.valueOf.toString());
+    alert(res.toString())
+    this.cumulative={}
   })
 
 
   console.log('hello');
   console.log(this.cumulative);
-  alert(this.cumulative.name);
+  alert(this.cumulative.designation);
 }
 
 
