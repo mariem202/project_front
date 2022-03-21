@@ -12,12 +12,12 @@ import { NormeServiceService } from '../services/norme-service.service';
 export class GestionNormesComponent implements OnInit {
 
  // constructor() { }
- /* NormeList: Array<{identifiant: number, libelle: string}> = [
-    {identifiant: 1, libelle: "Nettoyer"},
-    {identifiant: 2, libelle: 'Ranger'},
-    {identifiant: 3, libelle: 'Etre rigoureux'},
-    {identifiant: 4, libelle: "Maintenir l'ordre"},
-    {identifiant: 5, libelle: "Débarrasser"},
+ /* NormeList: Array<{id: number, designation: string}> = [
+    {id: 1, designation: "Nettoyer"},
+    {id: 2, designation: 'Ranger'},
+    {id: 3, designation: 'Etre rigoureux'},
+    {id: 4, designation: "Maintenir l'ordre"},
+    {id: 5, designation: "Débarrasser"},
 ];*/
 formCum=this.fb.group({
   designation:[""],
@@ -32,7 +32,8 @@ constructor(private normeService: NormeServiceService,private fb: FormBuilder ) 
 //public norme: Norme = new Norme();
 ngOnInit(): void {
    this.normeService.getListNormes().subscribe(data=>{
-    this.NormeList=data;
+    //this.NormeList=data;
+    //        this.refreshDepList();
   });
 }
 
@@ -73,5 +74,32 @@ ModalTitle:string="ajouter un nouveau norme";
     });*/
   //}
 
-
+  deleteClick(item: any){
+    if(confirm('Are you sure??')){
+      this.normeService.deleteNorle(item.id).subscribe(data=>{
+        alert(data.toString());
+        this.refreshDepList();
+      })
+    }
+  }
+  ChangeData(){
+    this.cumulative = {
+      id:this.cumulative.id,
+      designation: this.formCum.controls['designation'].value,
+    }
+    this.normeService.editNorme(this.cumulative).subscribe(res=>{
+      alert(res.toString())
+      this.cumulative={}
+    })
+  
+  
+    console.log('hello');
+    console.log(this.cumulative);
+    alert(this.cumulative.designation);
+  }
+  refreshDepList(){
+    this.normeService.getListNormes().subscribe(data=>{
+     // this.NormeList=data;
+    });
+  }
 }
