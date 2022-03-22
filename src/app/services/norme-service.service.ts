@@ -18,7 +18,7 @@ export class NormeServiceService {
   listNormes:Norme[]=[]
   getListNormes(){
         return this.http.get(this.backEndUrl+"/GetAllNormes")
-     }
+     } 
   deleteNorle(cumulative: any){
          return this.http.delete(this.backEndUrl+"/delelte"+cumulative,{responseType:"text"})
        }

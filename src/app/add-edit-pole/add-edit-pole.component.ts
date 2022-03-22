@@ -19,7 +19,7 @@ export class AddEditPoleComponent implements OnInit {
   PhotoFilePath:string="";
 
   formCum=this.fb.group({
-    name:[""],
+    Polename:[""],
     image:[""],
     });
 
@@ -34,8 +34,9 @@ export class AddEditPoleComponent implements OnInit {
     }
     
     this.cumulative = {
-      id:this.cumulative.id,
-      name: this.formCum.controls['name'].value,
+      PoleId:this.cumulative.PoleId,
+      Polename: this.formCum.controls['name'].value,
+      image:this.formCum.controls['PhotoFilePath'].value
     }
     this.service.postPole(this.cumulative).subscribe(res=>{
       alert(res.toString());

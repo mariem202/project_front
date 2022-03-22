@@ -16,9 +16,10 @@ export class PoleServiceService {
   postPole(cumulative:any){
     return this.http.post(this.backEndUrl+"/Post",cumulative,{responseType:"text"})
   }
- /* getPoleList():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/GetAllPole');
+  getPoleList():Observable<any[]>{
+    return this.http.get<any>(this.backEndUrl+'/GetAllPole');
   }
+  /*
   addPole(val:any){
     return this.http.post(this.APIUrl+'/PostPole',val);
   }
@@ -29,10 +30,10 @@ export class PoleServiceService {
 
   deletePole(val:any){
     return this.http.delete(this.APIUrl+'/DeletePole/'+val);
-  }
-
-  /*UploadPhoto(val:any){
-    return this.http.post(this.APIUrl+'/Employee/SaveFile',val);
   }*/
+
+  UploadPhoto(val:any){
+    return this.http.post(this.backEndUrl+'/SaveFile',val);
+  }
 
 }

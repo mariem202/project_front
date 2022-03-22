@@ -35,14 +35,14 @@ export class TestComponent implements OnInit {
       alert("veuillez remplir tous les champs")
     }
     this.cumulative = {
-      id:this.cumulative.id,
+      normeId:this.cumulative.normeId,
       designation: this.formCum.controls['designation'].value,
      
     }
     //alert(this.cumulative.name);
     
 //this.formCum.reset()
-    if(this.cumulative.id==undefined){
+    if(this.cumulative.normeId==undefined){
       this.rubriqueCumulativeService.postNorme(this.cumulative).subscribe((res) => {
         
         this.cumulative={}

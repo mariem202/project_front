@@ -44,7 +44,7 @@ public saveData() {
     alert("veuillez remplir tous les champs")
   }
   this.cumulative = {
-    id:this.cumulative.id,
+    normeId:this.cumulative.normeId,
     designation: this.formCum.controls['designation'].value,
   }
   this.normeService.postNorme(this.cumulative).subscribe(res=>{
@@ -62,12 +62,12 @@ public saveData() {
 
 ModalTitle:string="ajouter un nouveau norme";
 /*nor:any;
-  NormId:string="";
+  NormnormeId:string="";
   NormeName:string="";
 
 
   addDepartment(){
-    var val = {NormId:this.NormId,
+    var val = {NormnormeId:this.NormnormeId,
                 NormeName:this.NormeName};
    /* this.normeService.postCumulative(val).subscribe(res=>{
       alert(res.toString());
@@ -76,8 +76,8 @@ ModalTitle:string="ajouter un nouveau norme";
 
   deleteClick(item: any){
     if(confirm('Are you sure??')){
-      alert(item.id)
-      this.normeService.deleteNorle(item.id).subscribe(data=>{
+      alert(item.normeId)
+      this.normeService.deleteNorle(item.normeId).subscribe(data=>{
         alert(data.toString());
         this.refreshDepList();
       })
@@ -85,7 +85,7 @@ ModalTitle:string="ajouter un nouveau norme";
   }
   ChangeData(){
     this.cumulative = {
-      id:this.cumulative.id,
+      normeId:this.cumulative.normeId,
       designation: this.formCum.controls['designation'].value,
     }
     this.normeService.editNorme(this.cumulative).subscribe(res=>{

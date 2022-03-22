@@ -52,6 +52,7 @@
                         
                         required>
                       </div>
+                      
                     </div>
                     
                     <button type="button" class="btn btn-primary float-right" type="submit">ajouter </button>
@@ -142,7 +143,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let dataItem of NormeList">
-                    <td>{{dataItem.id}}</td>
+                    <td>{{dataItem.NormeId}}</td>
                     <td>{{dataItem.designation}}</td>
                     <td>
                         <button type="button" class="btn fa fa-trash btn-light mr-1"
