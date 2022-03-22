@@ -76,6 +76,7 @@ ModalTitle:string="ajouter un nouveau norme";
 
   deleteClick(item: any){
     if(confirm('Are you sure??')){
+      alert(item.id)
       this.normeService.deleteNorle(item.id).subscribe(data=>{
         alert(data.toString());
         this.refreshDepList();

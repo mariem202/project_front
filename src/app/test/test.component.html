@@ -4,16 +4,14 @@
 
   <div class="col-8 centerDiv">
     <div class="card-header ">
-      <h2>Ajouter un norme</h2>
 
     </div>
     <div class="card-body">
       <form [formGroup]="formCum" autocomplete="off" (ngSubmit)="submitFormCum()">
         <div class="form-group">
           <label for="form7"><h4>Commentaire</h4></label>
-          <textarea type="text" class="md-textarea md-textarea-auto form-control" mdbInput
-            formControlName="designation"></textarea>
-
+          <input type="text" class="md-textarea md-textarea-auto form-control" mdbInput
+            formControlName="designation"/>
         </div>
       </form>
     </div>
