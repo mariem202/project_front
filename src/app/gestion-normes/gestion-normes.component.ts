@@ -12,19 +12,19 @@ import { NormeServiceService } from '../services/norme-service.service';
 export class GestionNormesComponent implements OnInit {
 
  // constructor() { }
- /* NormeList: Array<{id: number, designation: string}> = [
-    {id: 1, designation: "Nettoyer"},
-    {id: 2, designation: 'Ranger'},
-    {id: 3, designation: 'Etre rigoureux'},
-    {id: 4, designation: "Maintenir l'ordre"},
-    {id: 5, designation: "Débarrasser"},
-];*/
+  NormeList: Array<{NormeId: number, designation: string}> = [
+    {NormeId: 1, designation: "Nettoyer"},
+    {NormeId: 2, designation: 'Ranger'},
+    {NormeId: 3, designation: 'Etre rigoureux'},
+    {NormeId: 4, designation: "Maintenir l'ordre"},
+    {NormeId: 5, designation: "Débarrasser"},
+];
 formCum=this.fb.group({
   designation:[""],
   
   });
 cumulative: Norme = {}
-NormeList: any = []
+//NormeList: any = []
 //filterForm: FormGroup
 //formCum: FormGroup
 constructor(private normeService: NormeServiceService,private fb: FormBuilder ) { }

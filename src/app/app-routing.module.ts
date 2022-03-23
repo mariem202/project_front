@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CritereComponent } from './critere/critere.component';
 import { EmailComponent } from './email/email.component';
 import { EvaluationComponent } from './evaluation/evaluation.component';
 import { GestionNormesComponent } from './gestion-normes/gestion-normes.component';
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path:'evaluation',component:EvaluationComponent},
   {path:'norme',component:NormesComponent}, 
    {path:'gnorme',component:GestionNormesComponent},
-   
+   {path:'critere',component:CritereComponent},
    {path:'test',component:TestComponent},
 ];
 
