@@ -34,7 +34,6 @@ cumulative: Critere = {}
 //filterForm: FormGroup
 //formCum: FormGroup
 constructor(private CritereService: CritereService,private fb: FormBuilder ) { }
-
 //public norme: Norme = new Norme();
 ngOnInit(): void {
  this.refreshcriList();

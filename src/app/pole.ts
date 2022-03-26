@@ -1,5 +1,5 @@
 export interface Pole {
     PoleId?: string,
-    Polename?: string,
+    PoleName?: string,
     image?: string,
 }

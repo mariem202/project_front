@@ -18,6 +18,7 @@ import { GestionNormesComponent } from './gestion-normes/gestion-normes.componen
 import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
 import { CritereComponent } from './critere/critere.component';
+import { FilialeComponent } from './filiale/filiale.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CritereComponent } from './critere/critere.component';
     NormesComponent,
     GestionNormesComponent,
     TestComponent,
-    CritereComponent
+    CritereComponent,
+    FilialeComponent
   ],
   imports: [
     BrowserModule,

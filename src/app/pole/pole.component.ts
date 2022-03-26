@@ -9,7 +9,6 @@ import { PoleServiceService } from '../services/pole-service.service';
   styleUrls: ['./pole.component.css']
 })
 export class PoleComponent implements OnInit {
-
   //constructor() { }
   constructor(private service: PoleServiceService,private fb: FormBuilder ) { }
 
@@ -42,7 +41,7 @@ cumulative: Pole = {}
     }
     this.cumulative = {
       PoleId:this.cumulative.PoleId,
-      Polename: this.formCum.controls['designation'].value,
+      PoleName: this.formCum.controls['designation'].value,
       image:this.formCum.controls['path'].value
     }
     this.service.postPole(this.cumulative).subscribe(res=>{
@@ -53,7 +52,7 @@ cumulative: Pole = {}
   
     console.log('hello');
     console.log(this.cumulative);
-    alert(this.cumulative.Polename);
+    alert(this.cumulative.PoleName);
   } 
 
 

@@ -23,6 +23,10 @@ formCum=this.fb.group({
   designation:[""],
   
   });
+  formCum1=this.fb.group({
+    designation:[""],
+    
+    });
 cumulative: Norme = {}
 //NormeList: any = []
 //filterForm: FormGroup

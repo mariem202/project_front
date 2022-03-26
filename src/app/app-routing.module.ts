@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CritereComponent } from './critere/critere.component';
 import { EmailComponent } from './email/email.component';
 import { EvaluationComponent } from './evaluation/evaluation.component';
+import { FilialeComponent } from './filiale/filiale.component';
 import { GestionNormesComponent } from './gestion-normes/gestion-normes.component';
 import { HomeComponent } from './home/home.component';
 import { NormesComponent } from './normes/normes.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
    {path:'gnorme',component:GestionNormesComponent},
    {path:'critere',component:CritereComponent},
    {path:'test',component:TestComponent},
+   {path:'filiale',component:FilialeComponent},
 ];
 
 @NgModule({
