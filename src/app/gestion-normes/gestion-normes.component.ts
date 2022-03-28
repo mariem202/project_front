@@ -20,10 +20,12 @@ export class GestionNormesComponent implements OnInit {
     {NormeId: 5, designation: "Débarrasser"},
 ];
 formCum=this.fb.group({
+  normeId:['00000000-0000-0000-000000000000'],
   designation:[""],
   
   });
   formCum1=this.fb.group({
+
     designation:[""],
     
     });
@@ -87,8 +89,12 @@ ModalTitle:string="ajouter un nouveau norme";
       })
     }
   }
-  ChangeData(){
-    this.cumulative = {
+  changeData(norme:Norme){
+    this.formCum.reset({
+      normeId:norme.normeId,
+      designation:norme.designation
+    })
+   /* this.cumulative = {
       normeId:this.cumulative.normeId,
       designation: this.formCum.controls['designation'].value,
     }
@@ -100,7 +106,7 @@ ModalTitle:string="ajouter un nouveau norme";
   
     console.log('hello');
     console.log(this.cumulative);
-    alert(this.cumulative.designation);
+    alert(this.cumulative.designation);*/
   }
   refreshDepList(){
     this.normeService.getListNormes().subscribe(data=>{
