@@ -10,19 +10,19 @@ import { PoleComponent } from '../pole/pole.component';
 })
 export class NormeServiceService {
 
-  backEndUrl:string="http://localhost:53535/api/Norme";
-  constructor(private http:HttpClient) { } 
-  postNorme(cumulative:any){
-    return this.http.post(this.backEndUrl+"/Post",cumulative,{responseType:"text"})
+  backEndUrl: string = "https://localhost:44388/api/Normes";
+  constructor(private http: HttpClient) { }
+  postNorme(cumulative: any) {
+    return this.http.post(this.backEndUrl + "/PostNormes", cumulative, { responseType: "text" })
   }
-  listNormes:Norme[]=[]
-  getListNormes(){
-        return this.http.get(this.backEndUrl+"/GetAllNormes")
-     } 
-  deleteNorle(cumulative: any){
-         return this.http.delete(this.backEndUrl+"/delelte"+cumulative,{responseType:"text"})
-       }
-  editNorme(cumulative:any){
-           return this.http.put(this.backEndUrl+"/edit",cumulative,{responseType:"text"})
-         }
+  listNormes: Norme[] = []
+  getListNormes() {
+    return this.http.get(this.backEndUrl + "/GetAllNormes")
+  }
+  deleteNorle(cumulative: any) {
+    return this.http.delete(this.backEndUrl + "/DeleteNormes?SaisieCommentId=" + cumulative, { responseType: "text" })
+  }
+  editNorme(cumulative: any) {
+    return this.http.put(this.backEndUrl + "/edit", cumulative, { responseType: "text" })
+  }
 }

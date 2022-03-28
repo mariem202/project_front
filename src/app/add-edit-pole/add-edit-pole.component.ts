@@ -10,53 +10,54 @@ import { PoleServiceService } from '../services/pole-service.service';
 })
 export class AddEditPoleComponent implements OnInit {
 
- // constructor() { }
-   constructor(public service:PoleServiceService,private fb: FormBuilder) { }
- /* pole:any;
-  PoleId:string="";
-  PoleName:string="";*/
-  PhotoFileName:string="";
-  PhotoFilePath:string="";
+  // constructor() { }
+  constructor(public service: PoleServiceService, private fb: FormBuilder) { }
+  /* pole:any;
+   PoleId:string="";
+   PoleName:string="";*/
+  PhotoFileName: string = "";
+  PhotoFilePath: string = "";
 
   formCum=this.fb.group({
     designation:[""],
     image:[""],
     });
+  
 
-    cumulative: Pole = {}
+  cumulative: Pole = {}
   ngOnInit(): void {
-   // this.PoleId=this.pole.PoleId;
+    // this.PoleId=this.pole.PoleId;
     //this.PoleName=this.pole.PoleName;
   }
-  addPole(){
-    if(! this.formCum.valid){
+  addPole() {
+    if (!this.formCum.valid) {
       alert("veuillez remplir tous les champs")
     }
-    
+
     this.cumulative = {
       PoleId:this.cumulative.PoleId,
       PoleName: this.formCum.controls['designation'].value,
-      image:this.formCum.controls['PhotoFilePath'].value
-    }
-    this.service.postPole(this.cumulative).subscribe(res=>{
+      image:this.formCum.controls['PhotoFilePath'].value,
+     }
+    this.service.postPole(this.cumulative).subscribe(res => {
       alert(res.toString());
     })
-  
-  
-    console.log('hello');
-  } 
 
-  updatePole(){
-   /* var val = {DepartmentId:this.PoleId,
-      DepartmentName:this.PoleName};
-      /*this.service.updatePole(val).subscribe(res=>{
-        alert(res.toString());
-        });*/
+
+    console.log('hello');
   }
-  uploadPhoto(event:any){
-    var file=event.target.files[0];
-    const formData:FormData=new FormData();
-    formData.append('uploadedFile',file,file.name);
+
+  updatePole() {
+    /* var val = {DepartmentId:this.PoleId,
+       DepartmentName:this.PoleName};
+       /*this.service.updatePole(val).subscribe(res=>{
+         alert(res.toString());
+         });*/
+  }
+  uploadPhoto(event: any) {
+    var file = event.target.files[0];
+    const formData: FormData = new FormData();
+    formData.append('uploadedFile', file, file.name);
 
     /*this.service.UploadPhoto(formData).subscribe((data:any)=>{
       this.PhotoFileName=data.toString();
