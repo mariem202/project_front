@@ -39,17 +39,17 @@
 								<div class="card-body">
 									<form (ngSubmit)="saveData()" [formGroup]="CritereService.formCum">
 										<div class="form-row">
-											<input type="hidden" formcontrolname="critereId">
+											<input type="hidden" formControlName="critereId">
 											<div class="col-md-6 mb-3">
 												<label>enter le nom de nouveau  norme
 												</label>
-												<input type="text" class="form-control" placeholder="Nom" formcontrolname="criterelabel" required>
+												<input type="text" class="form-control" placeholder="Nom" formControlName="criterelabel" required>
 											</div>
 
 										</div>
 										<label class="col-sm-2 col-form-label">Norme</label>
 										<div class="col-sm-10">
-											<select class="form-control" formcontrolname="normes">
+											<select class="form-control" formControlName="normes">
 												<option>--Select--</option>
 												<option *ngFor="let depName of NormeList ">
 													{{depName.designation}}
