@@ -11,94 +11,90 @@ import { NormeServiceService } from '../services/norme-service.service';
   styleUrls: ['./critere.component.css']
 })
 export class CritereComponent implements OnInit {
- /* CritereList: Array<{critereId: string, criterelabel: string}> = [
-    {critereId: "", criterelabel: "Nettoyer"},
-    {critereId: "", criterelabel: 'Ranger'},
-    {critereId: "", criterelabel: 'Etre rigoureux'},
-    {critereId: "", criterelabel: "Maintenir l'ordre"},
-    {critereId: "", criterelabel: "Débarrasser"},
-];*/
+  /* CritereList: Array<{critereId: string, criterelabel: string}> = [
+     {critereId: "", criterelabel: "Nettoyer"},
+     {critereId: "", criterelabel: 'Ranger'},
+     {critereId: "", criterelabel: 'Etre rigoureux'},
+     {critereId: "", criterelabel: "Maintenir l'ordre"},
+     {critereId: "", criterelabel: "Débarrasser"},
+ ];*/
 
- /* NormeList: Array<{NormeId: number, designation: string}> = [
-    {NormeId: 1, designation: "Nettoyer"},
-    {NormeId: 2, designation: 'Ranger'},
-    {NormeId: 3, designation: 'Etre rigoureux'},
-    {NormeId: 4, designation: "Maintenir l'ordre"},
-    {NormeId: 5, designation: "Débarrasser"},
-];*/
+  /* NormeList: Array<{NormeId: number, designation: string}> = [
+     {NormeId: 1, designation: "Nettoyer"},
+     {NormeId: 2, designation: 'Ranger'},
+     {NormeId: 3, designation: 'Etre rigoureux'},
+     {NormeId: 4, designation: "Maintenir l'ordre"},
+     {NormeId: 5, designation: "Débarrasser"},
+ ];*/
 
-formCum=this.fb.group({
-  critereId:['00000000-0000-0000-000000000000'],
-  criterelabel:[""],
-  normes:[""],
-  });
+
   CritereList: any = []
   NormeList: any = []
-cumulative: Critere = {}
-//NormeList: any = []
-//filterForm: FormGroup
-//formCum: FormGroup
-constructor(private CritereService: CritereService,private fb: FormBuilder ,private service: NormeServiceService,) { }
-//public norme: Norme = new Norme();
-ngOnInit(): void {
- this.refreshcriList();
- this.refreshnormList();
-}
-
-
-
-public saveData() {
-  if(! this.formCum.valid){
-    alert("veuillez remplir tous les champs")
+  cumulative: Critere = {}
+  //NormeList: any = []
+  //filterForm: FormGroup
+  //formCum: FormGroup
+  constructor(public CritereService: CritereService, private fb: FormBuilder, private service: NormeServiceService,) { }
+  //public norme: Norme = new Norme();
+  ngOnInit(): void {
+    this.refreshcriList();
+    this.refreshnormList();
   }
-  /*this.cumulative = {
-    critereId:this.cumulative.critereId,
-    criterelabel: this.formCum.controls['criterelabel'].value,
-    normes: this.formCum.controls['normes'].value,
-  }*/
-  this.CritereService.postCritere(this.formCum.value).subscribe(res=>{
-    alert(res.toString())
-    //this.cumulative={}
-  })
 
 
-  console.log('hello');
-  console.log(this.cumulative);
-  alert(this.cumulative.normes);  alert(this.cumulative.criterelabel);
+
+  public saveData() {
+    if (!this.CritereService.formCum.valid) {
+      alert("veuillez remplir tous les champs")
+    }
+    this.cumulative = {
+      critereId: this.cumulative.critereId,
+      criterelabel: this.CritereService.formCum.controls['criterelabel'].value,
+      normes: this.CritereService.formCum.controls['normes'].value,
+    }
+    this.CritereService.postCritere(this.cumulative).subscribe(res => {
+      alert(res.toString())
+      //this.cumulative={}
+    })
 
 
-}
+    console.log('hello');
+    // console.log(this.CritereService.formCum.value);
+    alert(this.cumulative.normes); alert(this.cumulative.criterelabel);
 
-deleteClick(item: any){
-  if(confirm('Are you sure??')){
-    alert(item.critereId)
-    this.CritereService.deleteCritere(item.critereId).subscribe(data=>{
-      alert(data.toString());
-      this.refreshcriList();
+
+  }
+
+  deleteClick(item: any) {
+    if (confirm('Are you sure??')) {
+      alert(item.critereId)
+      this.CritereService.deleteCritere(item.critereId).subscribe(data => {
+        alert(data.toString());
+        this.refreshcriList();
+      })
+    }
+  }
+  ChangeData(norme: Critere) {
+    this.CritereService.formCum.reset({
+      critereId: norme.critereId,
+      criterelabel: norme.criterelabel,
+      normes: norme.normes
     })
   }
-}
-ChangeData(norme:Critere){
-  this.formCum.reset({
-    critereId:norme.critereId,
-    criterelabel:norme.criterelabel,
-    normes:norme.normes
-  })
-}
 
-refreshcriList(){
-  this.CritereService.getListCriteres().subscribe(data=>{
-//    this.CritereList=data;
-  });
-}
+  refreshcriList() {
+    this.CritereService.getListCriteres().subscribe(data => {
+      this.CritereList = data;
+    });
+  }
 
 
-refreshnormList() {
-  this.service.getListNormes().subscribe(data => {
-    this.NormeList = data;
-    console.log(this.NormeList.designation)
-  });
+  refreshnormList() {
+    this.service.getListNormes().subscribe(data => {
+      this.NormeList = data;
+      console.log(this.NormeList.designation)
+    });
 
-}
+  }
 
 }

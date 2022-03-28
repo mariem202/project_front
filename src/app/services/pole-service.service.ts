@@ -23,13 +23,13 @@ export class PoleServiceService {
   addPole(val:any){
     return this.http.post(this.APIUrl+'/PostPole',val);
   }
-
-  updatePole(val:any){
-    return this.http.put(this.APIUrl+'/PutPole',val);
-  }
 */
+  updatePole(val: any) {
+    return this.http.put(this.backEndUrl + '/PutPole', val);
+  }
+
   deletePole(val: any) {
-    return this.http.delete(this.backEndUrl + '/DeletePole?SaisieCommentId=' + val);
+    return this.http.delete(this.backEndUrl + '/DeletePole?SaisieCommentId=' + val, { responseType: "text" })
   }
 
   UploadPhoto(val: any) {
